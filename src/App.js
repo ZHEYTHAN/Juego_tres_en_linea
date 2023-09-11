@@ -1,22 +1,39 @@
 import React from "react";
+import { useState } from "react";
 
-export default function Square() {
+function Square() {
+  // Valor en null como valor inicial
+  const [value, setValue] = useState(null);
+
+  // Funcion para cambiar a X al dar click
+  function handleClick() {
+    setValue("X");
+  }
+  return (
+    // Retorna el boton y aplica la X al clickear
+    <button className="square" onClick={handleClick}>
+      {value}
+    </button>
+  );
+}
+
+export default function Board() {
   return (
     <React.Fragment>
       <div className="board-row">
-        <button className="square">1</button>
-        <button className="square">2</button>
-        <button className="square">3</button>
+        <Square />
+        <Square />
+        <Square />
       </div>
       <div className="board-row">
-        <button className="square">4</button>
-        <button className="square">5</button>
-        <button className="square">6</button>
+        <Square />
+        <Square />
+        <Square />
       </div>
       <div className="board-row">
-        <button className="square">7</button>
-        <button className="square">8</button>
-        <button className="square">9</button>
+        <Square />
+        <Square />
+        <Square />
       </div>
     </React.Fragment>
   );
